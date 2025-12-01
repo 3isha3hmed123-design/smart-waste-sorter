@@ -8,11 +8,13 @@ import os
 # ==============================
 #   إعدادات Google Generative AI (Gemini)
 # ==============================
-# ضعي مفتاح الـ API الذي أخذتيه من:
-# https://aistudio.google.com/app/apikey
-GENAI_API_KEY = "-"  # <-- عدّلي هذا السطر
+import google.generativeai as genai
+import streamlit as st
 
-if GENAI_API_KEY == "-":
+# نقرأ المفتاح من Secrets في Streamlit Cloud
+GENAI_API_KEY = st.secrets.get("GENAI_API_KEY", "")
+
+if GENAI_API_KEY == "":
     genai_configured = False
 else:
     try:
@@ -21,6 +23,7 @@ else:
         model_gemini = genai.GenerativeModel("gemini-pro")
     except Exception:
         genai_configured = False
+
 
 # ==============================
 #   إعدادات Teachable Machine
