@@ -5,13 +5,9 @@ import google.generativeai as genai
 import tensorflow as tf
 import os
 
-# ==============================
-#   إعدادات Google Generative AI (Gemini)
-# ==============================
 import google.generativeai as genai
 import streamlit as st
 
-# القراءة من أسرار Streamlit Cloud
 GENAI_API_KEY = st.secrets.get("GENAI_API_KEY", "")
 
 if GENAI_API_KEY == "":
@@ -19,12 +15,10 @@ if GENAI_API_KEY == "":
 else:
     try:
         genai.configure(api_key=GENAI_API_KEY)
-        model_gemini = genai.GenerativeModel("gemini-1.5-flash")
+model_gemini = genai.GenerativeModel("gemini-1.0-pro")
         genai_configured = True
     except Exception as e:
         genai_configured = False
-
-
 
 # ==============================
 #   إعدادات Teachable Machine
