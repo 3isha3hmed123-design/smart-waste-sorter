@@ -10,9 +10,9 @@ import os
 # ==============================
 # ضعي مفتاح الـ API الذي أخذتيه من:
 # https://aistudio.google.com/app/apikey
-GENAI_API_KEY = "AIzaSyBV7t426MfEfpxu3GGORxDeiiGN9ctYUbE"  # <-- عدّلي هذا السطر
+GENAI_API_KEY = "-"  # <-- عدّلي هذا السطر
 
-if GENAI_API_KEY == "AIzaSyBV7t426MfEfpxu3GGORxDeiiGN9ctYUbE":
+if GENAI_API_KEY == "-":
     genai_configured = False
 else:
     try:
