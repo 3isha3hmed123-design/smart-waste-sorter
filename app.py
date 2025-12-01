@@ -20,7 +20,7 @@ else:
     try:
         genai.configure(api_key=GENAI_API_KEY)
         genai_configured = True
-        model_gemini = genai.GenerativeModel("gemini-pro")
+model_gemini = genai.GenerativeModel("gemini-1.5-flash")
     except Exception:
         genai_configured = False
 
