@@ -11,7 +11,7 @@ import os
 import google.generativeai as genai
 import streamlit as st
 
-# نقرأ المفتاح من Secrets في Streamlit Cloud
+# القراءة من أسرار Streamlit Cloud
 GENAI_API_KEY = st.secrets.get("GENAI_API_KEY", "")
 
 if GENAI_API_KEY == "":
@@ -19,10 +19,11 @@ if GENAI_API_KEY == "":
 else:
     try:
         genai.configure(api_key=GENAI_API_KEY)
+        model_gemini = genai.GenerativeModel("gemini-1.5-flash")
         genai_configured = True
-model_gemini = genai.GenerativeModel("gemini-1.5-flash")
-    except Exception:
+    except Exception as e:
         genai_configured = False
+
 
 
 # ==============================
